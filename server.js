@@ -3,6 +3,8 @@ const express = require("express");
 const connectDB = require('./config/db');
 const errorHandler = require("./middlewares/error");
 const fileUpload = require('express-fileupload');
+var cors = require('cors')
+
 
 
 
@@ -12,6 +14,7 @@ connectDB();
 
 const app = express();
 app.use('/public', express.static(__dirname + '/public'));
+app.use(cors()) // Use this after the variable declaration
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
